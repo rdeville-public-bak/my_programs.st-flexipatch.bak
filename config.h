@@ -5,19 +5,22 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-static char *font = "Fura Code Nerd Font:pixelsize=12:antialias=true:autohint=true";
+static char *font = "Fira Code:pixelsize=14:antialias=true:autohint=true";
 #if FONT2_PATCH
 /* Spare fonts */
 static char *font2[] = {
-  "Fira Code Nerd FontInconsolata for Powerline:pixelsize=12:antialias=true:autohint=true",
-  "Liberation Mono:pixelsize=12:antialias=true:autohint=true",
+  "Twemoji Mozilla:pixelsize=14:antialias=true:autohint=true",
+  "Twitter Color Emoji:pixelsize=14:antialias=true:autohint=true",
+  "JoyPixels:pixelsize=14:antialias=true:autohint=true",
+  "Noto Color Emoji:pixelsize=14:antialias=true:autohint=true",
+  "Fira Code Nerd Font:pixelsize=14:antialias=true:autohint=true", //Powerline
 };
 #endif // FONT2_PATCH
 
 #if RELATIVEBORDER_PATCH
 /* borderperc: percentage of cell width to use as a border
  *             0 = no border, 100 = border width is same as cell width */
-int borderperc = 20;
+int borderperc = 0;
 #else
 static int borderpx = 2;
 #endif // RELATIVEBORDER_PATCH
@@ -145,7 +148,7 @@ float grad_alpha = 0.54; //alpha value that'll change
 float stat_alpha = 0.46; //constant alpha value that'll get added to grad_alpha
 #endif // ALPHA_GRADIENT_PATCH
 #if ALPHA_FOCUS_HIGHLIGHT_PATCH
-float alphaUnfocused = 0.5;
+float alphaUnfocused = 0.25;
 #endif // ALPHA_FOCUS_HIGHLIGHT_PATCH
 #endif // ALPHA_PATCH
 
@@ -187,9 +190,9 @@ static const char *colorname[] = {
  */
 #if ALPHA_PATCH && ALPHA_FOCUS_HIGHLIGHT_PATCH
 unsigned int defaultbg = 0;
-unsigned int bg = 17, bgUnfocused = 16;
+unsigned int bg = 0, bgUnfocused = 0;
 #else
-unsigned int defaultbg = 258;
+unsigned int defaultbg = 0;
 #endif // ALPHA_FOCUS_HIGHLIGHT_PATCH
 unsigned int defaultfg = 259;
 unsigned int defaultcs = 256;
@@ -374,9 +377,8 @@ static MouseShortcut maltshortcuts[] = {
 #define TERMMOD (ControlMask|ShiftMask)
 
 #if EXTERNALPIPE_PATCH // example command
-static char *openurlcmd[] = { "/bin/sh", "-c",
-	"xurls | dmenu -l 10 -w $WINDOWID | xargs -r open",
-	"externalpipe", NULL };
+static char *openurlcmd[] = { "/bin/sh" , "-c" , "st-urlhandler -o" , "externalpipe" , NULL };
+static char *copyurlcmd[] = { "/bin/sh" , "-c" , "st-urlhandler -c" , "externalpipe" , NULL };
 #endif // EXTERNALPIPE_PATCH
 
 static Shortcut shortcuts[] = {
@@ -391,8 +393,8 @@ static Shortcut shortcuts[] = {
 	{ TERMMOD,              XK_C,           clipcopy,        {.i =  0} },
 	{ TERMMOD,              XK_V,           clippaste,       {.i =  0} },
 	#if SCROLLBACK_PATCH
-	{ ShiftMask,            XK_Page_Up,     kscrollup,       {.i = -1} },
-	{ ShiftMask,            XK_Page_Down,   kscrolldown,     {.i = -1} },
+	{ TERMMOD,              XK_K,         kscrollup,       {.i = -1} },
+	{ TERMMOD,              XK_J,         kscrolldown,     {.i = -1} },
 	#endif // SCROLLBACK_PATCH
 	#if CLIPBOARD_PATCH
 	{ TERMMOD,              XK_Y,           clippaste,       {.i =  0} },
@@ -402,20 +404,18 @@ static Shortcut shortcuts[] = {
 	{ ShiftMask,            XK_Insert,      selpaste,        {.i =  0} },
 	#endif // CLIPBOARD_PATCH
 	{ TERMMOD,              XK_Num_Lock,    numlock,         {.i =  0} },
-	#if COPYURL_PATCH || COPYURL_HIGHLIGHT_SELECTED_URLS_PATCH
-	{ MODKEY,               XK_l,           copyurl,         {.i =  0} },
-	#endif // COPYURL_PATCH
+	#if EXTERNALPIPE_PATCH
+	{ MODKEY,               XK_l,           externalpipe,    {.v =  openurlcmd} },
+	{ MODKEY,               XK_y,           externalpipe,    {.v =  copyurlcmd} },
+	#endif // EXTERNALPIPE_PATCH
 	#if OPENCOPIED_PATCH
 	{ MODKEY,               XK_o,           opencopied,      {.v = "xdg-open"} },
 	#endif // OPENCOPIED_PATCH
 	#if NEWTERM_PATCH
 	{ TERMMOD,              XK_Return,      newterm,         {.i =  0} },
 	#endif // NEWTERM_PATCH
-	#if EXTERNALPIPE_PATCH
-	{ TERMMOD,              XK_U,           externalpipe,    { .v = openurlcmd } },
-	#endif // EXTERNALPIPE_PATCH
 	#if KEYBOARDSELECT_PATCH
-	{ TERMMOD,              XK_Escape,      keyboard_select, { 0 } },
+	{ ControlMask,          XK_Escape,      keyboard_select, { 0 } },
 	#endif // KEYBOARDSELECT_PATCH
 	#if ISO14755_PATCH
 	{ TERMMOD,              XK_I,           iso14755,        {.i =  0} },

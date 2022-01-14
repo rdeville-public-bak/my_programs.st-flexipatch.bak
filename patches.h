@@ -22,7 +22,7 @@
  * https://github.com/juliusHuelsmann/st-focus/
  * https://st.suckless.org/patches/alpha_focus_highlight/
  */
-#define ALPHA_FOCUS_HIGHLIGHT_PATCH 0
+#define ALPHA_FOCUS_HIGHLIGHT_PATCH 1
 
 /* Adds gradient transparency to st, depends on the alpha patch.
  * https://st.suckless.org/patches/gradient/
@@ -32,7 +32,7 @@
 /* This patch allows st to resize to any pixel size rather than snapping to character width/height.
  * https://st.suckless.org/patches/anysize/
  */
-#define ANYSIZE_PATCH 0
+#define ANYSIZE_PATCH 1
 
 /* This patch aims to prevent black bars being drawn on the edges of st terminals using the anysize
  * patch. This generally only occurs when the terminal background color doesn't match the colors
@@ -65,13 +65,13 @@
 /* This patch adds custom rendering of lines/blocks/braille characters for gapless alignment.
  * https://st.suckless.org/patches/boxdraw/
  */
-#define BOXDRAW_PATCH 0
+#define BOXDRAW_PATCH 1
 
 /* By default st only sets PRIMARY on selection.
  * This patch makes st set CLIPBOARD on selection.
  * https://st.suckless.org/patches/clipboard/
  */
-#define CLIPBOARD_PATCH 0
+#define CLIPBOARD_PATCH 1
 
 /* This patch allows st to be resized without cutting off text when the terminal window is
  * made larger again. Text does not wrap when the terminal window is made smaller.
@@ -80,7 +80,7 @@
  *
  * https://github.com/bakkeby/st-flexipatch/issues/34
  */
-#define COLUMNS_PATCH 0
+#define COLUMNS_PATCH 1
 
 /* Select and copy the last URL displayed with Mod+l. Multiple invocations cycle through the
  * available URLs.
@@ -98,7 +98,7 @@
  * restores the window title (for instance nvim does this when opening and closing).
  * https://st.suckless.org/patches/csi_22_23/
  */
-#define CSI_22_23_PATCH 0
+#define CSI_22_23_PATCH 1
 
 /* According to the specification (see link in BLINKING_CURSOR_PATCH) the "Set cursor style
  * (DECSCUSR), VT520." escape sequences define both values of 0 and 1 as a blinking block,
@@ -138,12 +138,12 @@
 /* This patch makes the cursor color the inverse of the current cell color.
  * https://st.suckless.org/patches/dynamic-cursor-color/
  */
-#define DYNAMIC_CURSOR_COLOR_PATCH 0
+#define DYNAMIC_CURSOR_COLOR_PATCH 1
 
 /* Reading and writing st's screen through a pipe, e.g. pass info to dmenu.
  * https://st.suckless.org/patches/externalpipe/
  */
-#define EXTERNALPIPE_PATCH 0
+#define EXTERNALPIPE_PATCH 1
 
 /* This patch improves and extends the externalpipe patch in two ways:
  *    - it prevents the reset of the signal handler set on SIGCHILD, when
@@ -181,20 +181,20 @@
  * the terminal window.
  * https://st.suckless.org/patches/hidecursor/
  */
-#define HIDECURSOR_PATCH 0
+#define HIDECURSOR_PATCH 1
 
 /* This patch hides the terminal cursor when the window loses focus (as opposed to showing a hollow
  * cursor).
  * https://www.reddit.com/r/suckless/comments/nvee8h/how_to_hide_cursor_in_st_is_there_a_patch_for_it/
  */
-#define HIDE_TERMINAL_CURSOR_PATCH 0
+#define HIDE_TERMINAL_CURSOR_PATCH 1
 
 /* This patch adds a keybinding that lets you invert the current colorscheme of st.
  * This provides a simple way to temporarily switch to a light colorscheme if you use a dark
  * colorscheme or visa-versa.
  * https://st.suckless.org/patches/invert/
  */
-#define INVERT_PATCH 0
+#define INVERT_PATCH 1
 
 /* Pressing the default binding Ctrl+Shift-i will popup dmenu, asking you to enter a unicode
  * codepoint that will be converted to a glyph and then pushed to st.
@@ -205,7 +205,7 @@
 /* This patch allows you to select text on the terminal using keyboard shortcuts.
  * https://st.suckless.org/patches/keyboard_select/
  */
-#define KEYBOARDSELECT_PATCH 0
+#define KEYBOARDSELECT_PATCH 1
 
 /* This patch adds support for drawing ligatures using the Harfbuzz library to transform
  * original text of a single line to a list of glyphs with ligatures included.
@@ -215,7 +215,7 @@
  * https://github.com/cog1to/st-ligatures
  * https://st.suckless.org/patches/ligatures/
  */
-#define LIGATURES_PATCH 0
+#define LIGATURES_PATCH 1
 
 /* This patch makes st ignore terminal color attributes by forcing display of the default
  * foreground and background colors only - making for a monochrome look. Idea ref.
@@ -260,7 +260,7 @@
  * in the terminal.
  * https://st.suckless.org/patches/relativeborder/
  */
-#define RELATIVEBORDER_PATCH 0
+#define RELATIVEBORDER_PATCH 1
 
 /* This patch allows you to right-click on some selected text to send it to the plumbing
  * program of choice, e.g. open a file, view an image, open a URL.
@@ -271,13 +271,13 @@
 /* Scroll back through terminal output using Shift+{PageUp, PageDown}.
  * https://st.suckless.org/patches/scrollback/
  */
-#define SCROLLBACK_PATCH 0
+#define SCROLLBACK_PATCH 1
 
 /* Scroll back through terminal output using Shift+MouseWheel.
  * This variant depends on SCROLLBACK_PATCH being enabled.
  * https://st.suckless.org/patches/scrollback/
  */
-#define SCROLLBACK_MOUSE_PATCH 0
+#define SCROLLBACK_MOUSE_PATCH 1
 
 /* Scroll back through terminal output using mouse wheel (when not in MODE_ALTSCREEN).
  * This variant depends on SCROLLBACK_PATCH being enabled.
@@ -308,7 +308,7 @@
  *
  * https://gist.github.com/saitoha/70e0fdf22e3e8f63ce937c7f7da71809
  */
-#define SIXEL_PATCH 0
+#define SIXEL_PATCH 1
 
 /* This patch allows clients to embed into the st window and is useful if you tend to
  * start X applications from the terminal. For example:
@@ -368,7 +368,7 @@
  *
  * https://st.suckless.org/patches/undercurl/
  */
-#define UNDERCURL_PATCH 0
+#define UNDERCURL_PATCH 1
 
 /* Allows mouse scroll without modifier keys for regardless of alt screen using the external
  * scroll program.
@@ -389,7 +389,7 @@
  * https://github.com/juliusHuelsmann/st-history-vim
  * https://st.suckless.org/patches/vim_browse/
  */
-#define VIM_BROWSE_PATCH 0
+#define VIM_BROWSE_PATCH 1
 
 /* Briefly inverts window content on terminal bell event.
  * https://st.suckless.org/patches/visualbell/
@@ -399,14 +399,14 @@
 /* Adds support for w3m images.
  * https://st.suckless.org/patches/w3m/
  */
-#define W3M_PATCH 0
+#define W3M_PATCH 1
 
 /* Adds proper glyphs rendering in st allowing wide glyphs to be drawn as-is as opposed to
  * smaller or cut glyphs being rendered.
  * https://github.com/Dreomite/st/commit/e3b821dcb3511d60341dec35ee05a4a0abfef7f2
  * https://www.reddit.com/r/suckless/comments/jt90ai/update_support_for_proper_glyph_rendering_in_st/
  */
-#define WIDE_GLYPHS_PATCH 0
+#define WIDE_GLYPHS_PATCH 1
 
 /* There is a known issue that Google's Variable Fonts (VF) can end up with letter spacing
  * that is too wide in programs that use Xft, for example Inconsolata v3.000.

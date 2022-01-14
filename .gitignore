@@ -8,7 +8,7 @@ st
 # 2 following lines can be seen as useless, but there are here to avoid conflict
 # with file .gitignore from main_upstream (https://github.com/bakkeby/st-flexipatch)
 !config.h
-!pathes.h
+!patches.h
 .vimrc.local
 .tmuxinator.yml
 .old/

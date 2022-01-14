@@ -10,7 +10,7 @@ st
 !config.h
 !patches.h
 .vimrc.local
-.tmuxinator.yml
+.tmux*.y*ml
 .old/
 .tmp/
 .undodir

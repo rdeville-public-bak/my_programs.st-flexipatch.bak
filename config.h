@@ -393,8 +393,8 @@ static Shortcut shortcuts[] = {
 	{ TERMMOD,              XK_plus,        zoom,            {.f = +1} },
 	{ TERMMOD,              XK_degree,      zoom,            {.f = -1} },
 	{ TERMMOD,              XK_0,           zoomreset,       {.f =  0} },
-	{ MODKEY,               XK_C,           clipcopy,        {.i =  0} },
-	{ MODKEY,               XK_V,           clippaste,       {.i =  0} },
+	{ MODKEY,               XK_c,           clipcopy,        {.i =  0} },
+	{ MODKEY,               XK_v,           clippaste,       {.i =  0} },
 	#if SCROLLBACK_PATCH
 	{ MODKEY|ShiftMask,     XK_U,           kscrollup,       {.i = -1} },
 	{ MODKEY|ShiftMask,     XK_D,           kscrolldown,     {.i = -1} },

@@ -199,7 +199,7 @@ unsigned int defaultcs = 256;
 unsigned int defaultrcs = 257;
 
 #if VIM_BROWSE_PATCH
-unsigned int const currentBg = 6, buffSize = 2048;
+unsigned int const currentBg = 8, buffSize = 2048;
 /// Enable double / triple click yanking / selection of word / line.
 int const mouseYank = 1, mouseSelect = 0;
 /// [Vim Browse] Colors for search results currently on screen.
@@ -390,11 +390,16 @@ static Shortcut shortcuts[] = {
 	{ TERMMOD,              XK_Prior,       zoom,            {.f = +1} },
 	{ TERMMOD,              XK_Next,        zoom,            {.f = -1} },
 	{ TERMMOD,              XK_Home,        zoomreset,       {.f =  0} },
-	{ TERMMOD,              XK_C,           clipcopy,        {.i =  0} },
-	{ TERMMOD,              XK_V,           clippaste,       {.i =  0} },
+	{ TERMMOD,              XK_plus,        zoom,            {.f = +1} },
+	{ TERMMOD,              XK_degree,      zoom,            {.f = -1} },
+	{ TERMMOD,              XK_0,           zoomreset,       {.f =  0} },
+	{ MODKEY,               XK_C,           clipcopy,        {.i =  0} },
+	{ MODKEY,               XK_V,           clippaste,       {.i =  0} },
 	#if SCROLLBACK_PATCH
-	{ TERMMOD,              XK_K,         kscrollup,       {.i = -1} },
-	{ TERMMOD,              XK_J,         kscrolldown,     {.i = -1} },
+	{ MODKEY|ShiftMask,     XK_U,           kscrollup,       {.i = -1} },
+	{ MODKEY|ShiftMask,     XK_D,           kscrolldown,     {.i = -1} },
+	{ MODKEY|ShiftMask,     XK_K,           kscrollup,       {.i = 1} },
+	{ MODKEY|ShiftMask,     XK_J,           kscrolldown,     {.i = 1} },
 	#endif // SCROLLBACK_PATCH
 	#if CLIPBOARD_PATCH
 	{ TERMMOD,              XK_Y,           clippaste,       {.i =  0} },
@@ -415,7 +420,7 @@ static Shortcut shortcuts[] = {
 	{ TERMMOD,              XK_Return,      newterm,         {.i =  0} },
 	#endif // NEWTERM_PATCH
 	#if KEYBOARDSELECT_PATCH
-	{ ControlMask,          XK_Escape,      keyboard_select, { 0 } },
+	{ MODKEY,               XK_Escape,      keyboard_select, { 0 } },
 	#endif // KEYBOARDSELECT_PATCH
 	#if ISO14755_PATCH
 	{ TERMMOD,              XK_I,           iso14755,        {.i =  0} },
@@ -424,7 +429,7 @@ static Shortcut shortcuts[] = {
 	{ TERMMOD,              XK_X,           invert,          { 0 } },
 	#endif // INVERT_PATCH
 	#if VIM_BROWSE_PATCH
-	{ TERMMOD,               XK_c,           normalMode,      {.i =  0} },
+	{ TERMMOD,              XK_Escape,      normalMode,      { .i = 0} },
 	#endif // VIM_BROWSE_PATCH
 };
 

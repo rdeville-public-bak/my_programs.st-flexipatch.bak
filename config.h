@@ -148,7 +148,7 @@ float grad_alpha = 0.54; //alpha value that'll change
 float stat_alpha = 0.46; //constant alpha value that'll get added to grad_alpha
 #endif // ALPHA_GRADIENT_PATCH
 #if ALPHA_FOCUS_HIGHLIGHT_PATCH
-float alphaUnfocused = 0.25;
+float alphaUnfocused = 0.75;
 #endif // ALPHA_FOCUS_HIGHLIGHT_PATCH
 #endif // ALPHA_PATCH
 
@@ -181,6 +181,7 @@ static const char *colorname[] = {
 	"#555555", /* 257 -> rev cursor*/
 	"#000000", /* 258 -> bg */
 	"#e5e5e5", /* 259 -> fg */
+	"#eeeeee",
 };
 
 
@@ -190,7 +191,7 @@ static const char *colorname[] = {
  */
 #if ALPHA_PATCH && ALPHA_FOCUS_HIGHLIGHT_PATCH
 unsigned int defaultbg = 0;
-unsigned int bg = 0, bgUnfocused = 0;
+unsigned int bg = 0, bgUnfocused = 8;
 #else
 unsigned int defaultbg = 0;
 #endif // ALPHA_FOCUS_HIGHLIGHT_PATCH

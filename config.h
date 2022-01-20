@@ -153,12 +153,7 @@ float alphaUnfocused = 0.75;
 #endif // ALPHA_PATCH
 
 /* Terminal colors (16 first used in escape sequence) */
-
-// %%base16_template: st##default %%
-
-// %%base16_template_end%%
-
-/* Old terminal color version before using base16
+/* Old terminal color version before using base16 */
 static const char *colorname[] = {
   // 8 normal colors
   "black",
@@ -188,7 +183,6 @@ static const char *colorname[] = {
   "#e5e5e5", // 259 -> fg
   "#eeeeee",
 };
-*/
 
 /*
  * Default colors (colorname index)
@@ -200,6 +194,9 @@ unsigned int bg = 0, bgUnfocused = 8;
 #else
 unsigned int defaultbg = 0;
 #endif // ALPHA_FOCUS_HIGHLIGHT_PATCH
+unsigned int defaultfg = 7;
+unsigned int defaultcs = 13;
+unsigned int defaultrcs = 0;
 
 #if VIM_BROWSE_PATCH
 unsigned int const currentBg = 8, buffSize = 2048;

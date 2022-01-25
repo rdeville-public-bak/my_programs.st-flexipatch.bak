@@ -410,7 +410,7 @@ static Shortcut shortcuts[] = {
   #endif // CLIPBOARD_PATCH
   { TERMMOD,              XK_Num_Lock,    numlock,         {.i =  0} },
   #if EXTERNALPIPE_PATCH
-  { MODKEY,               XK_l,           externalpipe,    {.v =  openurlcmd} },
+  { MODKEY,               XK_o,           externalpipe,    {.v =  openurlcmd} },
   { MODKEY,               XK_y,           externalpipe,    {.v =  copyurlcmd} },
   #endif // EXTERNALPIPE_PATCH
   #if OPENCOPIED_PATCH
@@ -420,7 +420,7 @@ static Shortcut shortcuts[] = {
   { TERMMOD,              XK_Return,      newterm,         {.i =  0} },
   #endif // NEWTERM_PATCH
   #if KEYBOARDSELECT_PATCH
-  { MODKEY,               XK_Escape,      keyboard_select, { 0 } },
+  { MODKEY|ShiftMask,     XK_Escape,      keyboard_select, { 0 } },
   #endif // KEYBOARDSELECT_PATCH
   #if ISO14755_PATCH
   { TERMMOD,              XK_I,           iso14755,        {.i =  0} },
